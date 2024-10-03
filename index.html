@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 8px; }
+        h1 { text-align: center; }
+        p { font-size: 18px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Check Weather</h1>
+    <form method="POST" action="/">
+        <label for="city">Enter City:</label><br>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {{if .}}
+    <h2>Weather in {{.Name}}</h2>
+    <p>Temperature: {{.Temperature.Metric.Value}}°C</p>
+    <p>Conditions: {{.WeatherText}}</p>
+    {{end}}
+</div>
+</body>
+</html>
